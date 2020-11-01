@@ -1,14 +1,14 @@
 .main-container {
   background-color: hsl(0, 0%, 85%);
-  padding-top: 1rem;
+  padding: 1rem;
 
   display: grid;
   grid-template-columns:
-    [sidebar-start] 20rem [sidebar-end] 2rem
+    [sidebar-start] 20rem [sidebar-end] 1rem
     [stories-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end])
-    [stories-end ] 2rem [side-end];
+    [stories-end ] 1rem [side-end];
 
-  @media only screen and (max-width: 900px) {
+  @media only screen and (max-width: 56.25em) {
     grid-template-columns:
       [sidebar-start] 2rem [sidebar-end stories-start]
       repeat(8, [col-start] minmax(min-content, 14rem) [col-end])
@@ -24,32 +24,28 @@
   grid-column: stories-start/stories-end;
 
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
   column-gap: 2rem;
   row-gap: 2rem;
 }
 
 .product-card {
   display: flex;
-  justify-content: center;
-  align-items: center;
+
   flex-direction: column;
+  align-items: center;
   width: 100%;
   box-shadow: 0 0 3.5rem 0.1rem rgba(0, 0, 0, 0.1);
 }
 
 .product__Bg {
-  position: relative;
-  height: 23.5rem;
   width: 100%;
-  background-image: linear-gradient(45deg, #0136af, #22abfa);
+  background-image: linear-gradient(to right, #ebff00, #00ff87);
 }
 
 .prod__img {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  max-width: 100%;
+  height: auto;
 }
 
 .prod__info {
@@ -59,7 +55,7 @@
   padding: 1.2rem;
 
   &--1 {
-    padding: 0 0 1rem 0;
+    padding: 0 0 0.6rem 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -70,16 +66,13 @@
     max-height: 11.8rem;
     overflow: hidden;
 
-    .title {
-      font-size: 1.4rem;
-      color: #3a3a3a;
-      font-weight: 600;
-      text-transform: uppercase;
-    }
-
     .text {
       color: #555;
       font-size: 1.3rem;
+    }
+
+    .chat {
+      float: right;
     }
   }
 }
@@ -110,36 +103,4 @@
 .prod__info--1,
 .prod__info--2 {
   border-bottom: 1px solid #dadada;
-}
-
-.prod__info--3 {
-  padding-top: 1.5rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.location {
-  padding: 0.8rem 1rem;
-  font-size: 1.2rem;
-  background-color: var(--primary);
-  text-decoration: none;
-  color: black;
-  letter-spacing: 1px;
-  font-weight: 600;
-  transition: 0.2s;
-
-  &:hover {
-    letter-spacing: 1.3px;
-  }
-
-  &:hover i {
-    margin-right: 0.5rem;
-  }
-
-  i {
-    font-size: 1.8rem;
-    margin-right: 2px;
-    transition: 0.2s;
-  }
 }

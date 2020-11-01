@@ -8,9 +8,17 @@
 html {
   font-size: 62.5%; }
 
+@font-face {
+  font-family: garogier;
+  src: url(fonts/garogier.ttf); }
+
+@font-face {
+  font-family: cormorant_infant_light;
+  src: url(fonts/cormorantinfant-light.otf); }
+
 body {
-  font-family: "Open Sans", sans-serif;
-  font-weight: 400;
+  font-family: "GothamSSm";
+  font-weight: normal;
   box-sizing: border-box;
   line-height: 1.6; }
 
@@ -18,24 +26,77 @@ body {
   display: flex;
   flex-direction: column; }
 
-.heading-2 {
-  color: red; }
+.Company_Name {
+  display: block;
+  font-size: 4rem;
+  font-family: garogier;
+  font-weight: 500;
+  line-height: 1; }
+  .Company_Name sup {
+    font-size: 1.2rem; }
 
-.footer {
-  background: rgba(1, 16, 24, 0.99);
-  color: white;
-  flex: 6rem 1 1; }
+.heading-2 {
+  font-weight: 500; }
 
 .header {
   background-color: white;
-  flex: 8rem 1 1; }
+  color: #021a27;
+  flex: 8rem 1 1;
+  display: flex;
+  padding: 0 2rem;
+  align-items: center;
+  justify-content: space-between; }
+
+.search {
+  flex: 0 0 40%;
+  font-size: 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  @media only screen and (max-width: 36em) {
+    .search {
+      order: 1;
+      flex: 0 0 80%;
+      justify-content: flex-end; } }
+  .search__input {
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    background-color: #f3f1f1;
+    border: none;
+    padding: 0.7rem 2rem;
+    border-radius: 100px;
+    width: 90%;
+    margin-right: -3.25rem;
+    transition: all 0.2s; }
+    .search__input:focus {
+      outline: none;
+      width: 100%;
+      background-color: #f3f1f1; }
+    .search__input::-webkit-input-placeholder {
+      font-weight: 100;
+      color: gray; }
+  .search__input:focus + .search__button {
+    color: gray; }
+  .search__button {
+    border: none;
+    background-color: #f3f1f1; }
+    .search__button:focus {
+      outline: none; }
+    .search__button:active {
+      transform: translateY(2px); }
+  .search__icon {
+    font-size: 1.8rem;
+    padding-top: 0.4rem;
+    padding-right: 0.8rem;
+    display: inline-block; }
 
 .main-container {
   background-color: #d9d9d9;
-  padding-top: 1rem;
+  padding: 1rem;
   display: grid;
-  grid-template-columns: [sidebar-start] 20rem [sidebar-end] 2rem [stories-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [stories-end] 2rem [side-end]; }
-  @media only screen and (max-width: 900px) {
+  grid-template-columns: [sidebar-start] 20rem [sidebar-end] 1rem [stories-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [stories-end] 1rem [side-end]; }
+  @media only screen and (max-width: 56.25em) {
     .main-container {
       grid-template-columns: [sidebar-start] 2rem [sidebar-end stories-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [stories-end] 2rem [side-end]; } }
 
@@ -45,29 +106,24 @@ body {
 .content {
   grid-column: stories-start/stories-end;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
   column-gap: 2rem;
   row-gap: 2rem; }
 
 .product-card {
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
+  align-items: center;
   width: 100%;
   box-shadow: 0 0 3.5rem 0.1rem rgba(0, 0, 0, 0.1); }
 
 .product__Bg {
-  position: relative;
-  height: 23.5rem;
   width: 100%;
-  background-image: linear-gradient(45deg, #0136af, #22abfa); }
+  background-image: linear-gradient(to right, #ebff00, #00ff87); }
 
 .prod__img {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  object-fit: cover; }
+  max-width: 100%;
+  height: auto; }
 
 .prod__info {
   background-color: #fff;
@@ -75,7 +131,7 @@ body {
   z-index: 1;
   padding: 1.2rem; }
   .prod__info--1 {
-    padding: 0 0 1rem 0;
+    padding: 0 0 0.6rem 0;
     display: flex;
     align-items: center;
     justify-content: space-between; }
@@ -83,14 +139,11 @@ body {
     padding: 1rem 0;
     max-height: 11.8rem;
     overflow: hidden; }
-    .prod__info--2 .title {
-      font-size: 1.4rem;
-      color: #3a3a3a;
-      font-weight: 600;
-      text-transform: uppercase; }
     .prod__info--2 .text {
       color: #555;
       font-size: 1.3rem; }
+    .prod__info--2 .chat {
+      float: right; }
 
 .prod__title {
   margin-right: 1rem;
@@ -115,30 +168,6 @@ body {
 .prod__info--1,
 .prod__info--2 {
   border-bottom: 1px solid #dadada; }
-
-.prod__info--3 {
-  padding-top: 1.5rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center; }
-
-.location {
-  padding: 0.8rem 1rem;
-  font-size: 1.2rem;
-  background-color: var(--primary);
-  text-decoration: none;
-  color: black;
-  letter-spacing: 1px;
-  font-weight: 600;
-  transition: 0.2s; }
-  .location:hover {
-    letter-spacing: 1.3px; }
-  .location:hover i {
-    margin-right: 0.5rem; }
-  .location i {
-    font-size: 1.8rem;
-    margin-right: 2px;
-    transition: 0.2s; }
 
 .side-menu {
   z-index: 10;
@@ -246,3 +275,50 @@ body {
 .navigation__checkbox:checked + .navigation__button .navigation__icon:after {
   top: 0;
   transform: rotate(-135deg); }
+
+.footer {
+  background: rgba(1, 16, 24, 0.99);
+  color: white;
+  font-size: 1.5rem;
+  flex: 20rem 1 1;
+  padding: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; }
+  .footer__tel span {
+    display: block; }
+
+.emblem {
+  border: dashed;
+  border-width: thin;
+  border-radius: 100%;
+  inline-size: 15rem;
+  block-size: 15rem;
+  bottom: auto;
+  left: auto;
+  position: relative; }
+  .emblem__line {
+    border: dashed;
+    border-width: thin;
+    border-radius: 100%;
+    inline-size: 10rem;
+    block-size: 10rem;
+    bottom: 15%;
+    left: 15%;
+    position: absolute; }
+    .emblem__line .dot {
+      line-height: 0;
+      position: absolute;
+      font-size: 4rem;
+      bottom: 56%;
+      left: 46%;
+      display: flex;
+      flex-direction: column; }
+      .emblem__line .dot::before {
+        content: "";
+        height: 7rem;
+        width: 2px;
+        margin-left: 0.5rem;
+        display: block;
+        background-image: linear-gradient(to right, #ebff00, #00ff87);
+        transform: translateY(6px); }

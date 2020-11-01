@@ -1,4 +1,4 @@
-const products = document.querySelectorAll(".prod__img");
+/*const products = document.querySelectorAll(".prod__img");
 const prodBg = document.querySelectorAll(".product__Bg");
 
 let x = window.matchMedia("(max-width:1400px)");
@@ -20,3 +20,4 @@ function changeHeight() {
 
 changeHeight();
 window.addEventListener("resize", changeHeight);
+*/
